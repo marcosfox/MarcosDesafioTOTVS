@@ -1,0 +1,7 @@
+
+CREATE TABLE tbTransacaoFinanceira (
+	IdTransacao INT Primary key IDENTITY,
+	ValorPago MONEY,
+	ValorDevido MONEY,
+	ValorTroco MONEY
+	)
