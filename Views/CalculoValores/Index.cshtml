@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Entre com os valores";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<style>
+    ul {
+        list-style-type: none;
+    }
+</style>
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.mask.min.js"></script>
+<script src="~/Scripts/jquery.formatCurrency-1.4.0.min.js"></script>
+<script src="~/Scripts/TransacaoFinanceira/TransacaoFinanceira.js"></script>
+<div class="col-md-12">
+    <div class="row">
+        <fieldset style="width: 500px">
+            <legend>Entre com os valores</legend>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-5">
+                        Valor devido:
+                    </div>
+                    <div class="col-md-5">
+                        Valor pago:
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        R$<input type="text" id="txtValorDevido" onkeyup="calcularTroco(this)" style="width: 70px" />
+                    </div>
+                    <div class="col-md-5">
+                        R$<input type="text" id="txtValorPago" onkeyup="calcularTroco(this)" style="width: 70px" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <label id="lblValorSuperior" style="color: red; display:none; font-size:10px"></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 pull-right" style="font-size: 14px">
+                        <strong>Troco: R$<label id="lblTroco" style="padding-left:5px">0</label></strong>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <input type="button" class="btn-primary pull-right" onclick="salvar()" value="Salvar" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <ul id="lstTrocoDescricao"></ul>
+        </div>
+    </div>
+</div>
+<div id="mdlInformativo" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header btn-success">
+                <h3><span class="glyphicon glyphicon-info-sign"></span>Informativo</h3>
+            </div>
+            <div class="modal-body text-center">
+                Inclusão realizada com sucesso!
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <a class="btn btn-success" data-dismiss="modal" onclick="recarregar()" style="width: 80px">
+                        Ok
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
